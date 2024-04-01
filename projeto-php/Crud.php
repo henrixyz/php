@@ -1,15 +1,14 @@
 <?php
 
-
 class Crud{
     private $connect;
 
-    private $id;
+    // private $id;
     private $nome;
     private $email;
     private $idade;
     
-    function _construct($conect){
+    function __construct($conect){
         $this->connect = $conect;
     }
 
@@ -21,18 +20,21 @@ class Crud{
 
     public function insertDados(){
         $sql = $this->connect->prepare("INSERT INTO clientes(nome,idade,email,data_now)VALUES(?,?,?,now())");
-
-
-        //para precaucao de ataque hacker. bindparam substitui as interrogacoes do "VALUES"
-        $sql -> bindParam(1,$this->nome);
-        $sql -> bindParam(2,$this->idade);
-        $sql -> bindParam(1,$this->email);
         
-        if ($sql->execute()){
-            echo "ok";
-        }else{
-            echo "erro";
-        }
+        // //para precaucao de ataque hacker. bindparam substitui as interrogacoes do "VALUES"
+        $sql->bindParam(1,$this->nome);
+        $sql->bindParam(2,$this->idade);
+        $sql->bindParam(3,$this->email);
+
+        $sql->execute();
+        echo "ok";
+        
+        
+        // if ($sql->execute()){
+        //     echo "ok";
+        // }else{
+        //     echo "erro";
+        // }
     }
 
 }

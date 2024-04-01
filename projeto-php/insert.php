@@ -9,6 +9,6 @@ include_once("Crud.php");
 
 $obj = new Crud($conect);
 
-$obj -> setDados($nome,$email,$idade);
+$obj->setDados($nome,$email,$idade);
 
-$obj -> insertDados();
+$obj->insertDados();
