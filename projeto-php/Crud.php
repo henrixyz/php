@@ -36,7 +36,7 @@ class Crud{
         }
     }
 
-    public fuction readInfo($id = null){
+    public function readInfo($id = null){
         if(isset($id)){
         $sql = $this->connect->prepare("SELECT *FROM clientes WHERE id=?");
 
@@ -45,7 +45,7 @@ class Crud{
         $sql -> execute();
 
         $result = $sql->fetch(PDO::FETCH_OBJ);
-        return $result
+        return $result;
 
         } else {
             $this->getAll();
@@ -53,9 +53,11 @@ class Crud{
     }
 
     public function getAll(){
-        $sql = $this->query("SELECT * FROM clientes");
+        $sql = $this->connect->query("SELECT * FROM clientes");
+        
         $r= $sql->fetchAll();//fecthAll()pega todas as formacões consultadas --- tranforma dados em matriz**
         return $r;
+        echo 'sla varias'; 
     }
 
 } //end classCrud

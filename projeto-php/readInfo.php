@@ -17,6 +17,6 @@ $obj = new Crud($conect);
 $obj->readInfo();
 
 $dado = $obj->getAll();
-var_dumb($dado);
+var_dump($dado);
 
 ?>
