@@ -26,15 +26,36 @@ class Crud{
         $sql->bindParam(2,$this->idade);
         $sql->bindParam(3,$this->email);
 
-        $sql->execute();
-        echo "ok";
+        // $sql->execute();
+        // echo "ok";
         
-        
-        // if ($sql->execute()){
-        //     echo "ok";
-        // }else{
-        //     echo "erro";
-        // }
+        if ($sql->execute()){
+            echo "ok";
+        }else{
+            echo "erro";
+        }
     }
 
-}
+    public fuction readInfo($id = null){
+        if(isset($id)){
+        $sql = $this->connect->prepare("SELECT *FROM clientes WHERE id=?");
+
+        $sql -> bindValue(1,$id); //bindParam()
+
+        $sql -> execute();
+
+        $result = $sql->fetch(PDO::FETCH_OBJ);
+        return $result
+
+        } else {
+            $this->getAll();
+        }
+    }
+
+    public function getAll(){
+        $sql = $this->query("SELECT * FROM clientes");
+        $r= $sql->fetchAll();//fecthAll()pega todas as formacões consultadas --- tranforma dados em matriz**
+        return $r;
+    }
+
+} //end classCrud

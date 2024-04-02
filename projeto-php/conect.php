@@ -10,7 +10,7 @@ $password = 'mysql2024';
 
 
 try {
-    $conect = new PDO("mysql:host=$host;dbname=$dbname",$user,$password); 
+    $conect = new PDO("mysql:dbname=$dbname;host=$host;charset=utf8",$user,$password); //se der errado volta aqui
     $conect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //testa erro
     // $conect = $pdo; // cuidado nesse aqui viu
     // echo 'deu certo';
