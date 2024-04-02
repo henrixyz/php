@@ -17,6 +17,25 @@ $obj = new Crud($conect);
 $obj->readInfo();
 
 $dado = $obj->getAll();
-var_dump($dado);
+// var_dump($dado);
 
+// foreach($dado as $info){
+//     echo $info['id']." - ".$info['nome']." - ".
+//     $info['idade']." - ".$info['email']." - ".
+//     $info['data_now']." - "."<br>";
+// }
+
+echo "<table border='1'>";
+echo "<tr><th>id</th>
+      <th>usuarios</th>
+      <th>senha</th></tr>";
+
+foreach($dado as $info){
+    echo "<tr>";
+        "<td>{$info['id']}</td>";
+        "<td>{$r_users->usuarios}</td>";
+        "<td>{$r_users->senha}</td>";
+        "</tr>";
+}
+echo "</table>";
 ?>
