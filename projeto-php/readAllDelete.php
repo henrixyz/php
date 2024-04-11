@@ -11,7 +11,7 @@ $dados = $obj->getAll();
 
 echo "<link rel='stylesheet' href='css/style.css'>";
 echo "<main>";
-echo "<header>selecione um registro para deletar</header>";
+echo "<header>delete registro!</header>";
 
 echo "<table border='1'>";
 echo "<th>nome</th>

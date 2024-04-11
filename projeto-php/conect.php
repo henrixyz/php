@@ -19,10 +19,4 @@ try {
     die("Connection failed: " . $e->getMessage());
 }
 
-// $host = 'localhost';
-// $dbname = 'aula_php'; 
-// $user = 'root';
-// $password = 'mysql2024';
-
-
 // }

@@ -27,7 +27,6 @@ class Crud{
         $sql->bindParam(3,$this->email);
         
         // $sql->execute();
-        // echo "ok";
         
         if ($sql->execute()){
             echo "dados inseridos com sucesso!";
@@ -39,7 +38,7 @@ class Crud{
     public function readInfo($id = null){
         if(isset($id)){
             
-            $sql = $this->connect->prepare("SELECT *FROM clientes WHERE id=?");
+            $sql = $this->connect->prepare("SELECT * FROM clientes WHERE id=?");
             $sql -> bindValue(1,$id); //bindParam()
             $sql -> execute();
             
@@ -51,11 +50,28 @@ class Crud{
         }
     }
     
+    
     public function getAll(){
         $sql = $this->connect->query("SELECT * FROM clientes");
         
         $r= $sql->fetchAll();//fecthAll()pega todas as formacões consultadas --- tranforma dados em matriz**
         return $r; 
+    }
+    
+    public function readInfoAll($nome = null){
+        if(isset($nome)){
+            
+            $sql = $this->connect->prepare("SELECT * FROM clientes WHERE nome LIKE ?");
+
+            $sql -> bindValue(1,"%$nome%"); //bindParam()
+            $sql -> execute();
+            
+            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+            
+        } else {
+            $this->getAll();
+        }
     }
     
     public function update($id, $nome, $idade, $email){
@@ -88,4 +104,4 @@ class Crud{
 
     }
 
-} //end classCrud
+} 

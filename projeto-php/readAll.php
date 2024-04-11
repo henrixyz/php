@@ -6,11 +6,11 @@ $obj = new Crud($conect);
 
 $obj->readInfo();
 $dados = $obj->getAll();
-// var_dump($dados) //ve se ta funcionando
+// var_dump($dados); //ve se ta funcionando
 
 echo "<link rel='stylesheet' href='css/style.css'>";
 echo "<main>";
-echo "<header>selecione um registro para deletar</header>";
+echo "<header>selecione um registro para editar</header>";
 
 echo "<table border='1'>";
 echo "<th>nome</th>
